@@ -8,6 +8,10 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-@interface EnvolopeLayer : CALayer
+@interface EnvelopeLayer : CAShapeLayer
+
+- (instancetype)initWithFrame:(CGRect)frame;
+
+- (void)moveDownAnimation;
 
 @end

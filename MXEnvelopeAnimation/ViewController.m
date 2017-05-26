@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "MXEnvelopeView.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    MXEnvelopeView *envelopeView = [[MXEnvelopeView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 2 / 15, 100, SCREEN_WIDTH * 11 / 15, SCREEN_WIDTH * 77 / 207)];
+    [self.view addSubview:envelopeView];
 }
 
 

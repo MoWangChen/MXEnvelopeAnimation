@@ -13,8 +13,10 @@
 		DD3445C31ED6C3B000E6804D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3445C11ED6C3B000E6804D /* Main.storyboard */; };
 		DD3445C51ED6C3B000E6804D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3445C41ED6C3B000E6804D /* Assets.xcassets */; };
 		DD3445C81ED6C3B000E6804D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3445C61ED6C3B000E6804D /* LaunchScreen.storyboard */; };
-		DD3445D41ED6C59300E6804D /* MXEnvolopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3445D31ED6C59300E6804D /* MXEnvolopeView.m */; };
-		DD3445D71ED6EFFD00E6804D /* EnvolopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3445D61ED6EFFD00E6804D /* EnvolopeLayer.m */; };
+		DD3445D41ED6C59300E6804D /* MXEnvelopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3445D31ED6C59300E6804D /* MXEnvelopeView.m */; };
+		DD3445D71ED6EFFD00E6804D /* EnvelopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3445D61ED6EFFD00E6804D /* EnvelopeLayer.m */; };
+		DD3445DA1ED818BB00E6804D /* UIBezierPath+AnimationPath.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3445D91ED818BB00E6804D /* UIBezierPath+AnimationPath.m */; };
+		DD3445DD1ED81FB100E6804D /* SealLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3445DC1ED81FB100E6804D /* SealLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +30,14 @@
 		DD3445C41ED6C3B000E6804D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD3445C71ED6C3B000E6804D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD3445C91ED6C3B000E6804D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD3445D21ED6C59300E6804D /* MXEnvolopeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXEnvolopeView.h; sourceTree = "<group>"; };
-		DD3445D31ED6C59300E6804D /* MXEnvolopeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXEnvolopeView.m; sourceTree = "<group>"; };
-		DD3445D51ED6EFFD00E6804D /* EnvolopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvolopeLayer.h; sourceTree = "<group>"; };
-		DD3445D61ED6EFFD00E6804D /* EnvolopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvolopeLayer.m; sourceTree = "<group>"; };
+		DD3445D21ED6C59300E6804D /* MXEnvelopeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXEnvelopeView.h; sourceTree = "<group>"; };
+		DD3445D31ED6C59300E6804D /* MXEnvelopeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXEnvelopeView.m; sourceTree = "<group>"; };
+		DD3445D51ED6EFFD00E6804D /* EnvelopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvelopeLayer.h; sourceTree = "<group>"; };
+		DD3445D61ED6EFFD00E6804D /* EnvelopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvelopeLayer.m; sourceTree = "<group>"; };
+		DD3445D81ED818BB00E6804D /* UIBezierPath+AnimationPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+AnimationPath.h"; sourceTree = "<group>"; };
+		DD3445D91ED818BB00E6804D /* UIBezierPath+AnimationPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+AnimationPath.m"; sourceTree = "<group>"; };
+		DD3445DB1ED81FB100E6804D /* SealLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SealLayer.h; sourceTree = "<group>"; };
+		DD3445DC1ED81FB100E6804D /* SealLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SealLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,8 +97,8 @@
 			children = (
 				DD3445D01ED6C4E400E6804D /* Layer */,
 				DD3445D11ED6C4E400E6804D /* Others */,
-				DD3445D21ED6C59300E6804D /* MXEnvolopeView.h */,
-				DD3445D31ED6C59300E6804D /* MXEnvolopeView.m */,
+				DD3445D21ED6C59300E6804D /* MXEnvelopeView.h */,
+				DD3445D31ED6C59300E6804D /* MXEnvelopeView.m */,
 			);
 			path = MXLayer;
 			sourceTree = "<group>";
@@ -100,8 +106,10 @@
 		DD3445D01ED6C4E400E6804D /* Layer */ = {
 			isa = PBXGroup;
 			children = (
-				DD3445D51ED6EFFD00E6804D /* EnvolopeLayer.h */,
-				DD3445D61ED6EFFD00E6804D /* EnvolopeLayer.m */,
+				DD3445D51ED6EFFD00E6804D /* EnvelopeLayer.h */,
+				DD3445D61ED6EFFD00E6804D /* EnvelopeLayer.m */,
+				DD3445DB1ED81FB100E6804D /* SealLayer.h */,
+				DD3445DC1ED81FB100E6804D /* SealLayer.m */,
 			);
 			path = Layer;
 			sourceTree = "<group>";
@@ -109,6 +117,8 @@
 		DD3445D11ED6C4E400E6804D /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				DD3445D81ED818BB00E6804D /* UIBezierPath+AnimationPath.h */,
+				DD3445D91ED818BB00E6804D /* UIBezierPath+AnimationPath.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -186,10 +196,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD3445C01ED6C3B000E6804D /* ViewController.m in Sources */,
+				DD3445DD1ED81FB100E6804D /* SealLayer.m in Sources */,
+				DD3445DA1ED818BB00E6804D /* UIBezierPath+AnimationPath.m in Sources */,
 				DD3445BD1ED6C3B000E6804D /* AppDelegate.m in Sources */,
 				DD3445BA1ED6C3B000E6804D /* main.m in Sources */,
-				DD3445D71ED6EFFD00E6804D /* EnvolopeLayer.m in Sources */,
-				DD3445D41ED6C59300E6804D /* MXEnvolopeView.m in Sources */,
+				DD3445D71ED6EFFD00E6804D /* EnvelopeLayer.m in Sources */,
+				DD3445D41ED6C59300E6804D /* MXEnvelopeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,8 +27,19 @@
     return self;
 }
 
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+}
+
+- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
+{
+    [super drawLayer:layer inContext:ctx];
+}
+
 - (void)addEnvelopeLayer
 {
+    [self.envelopeLayer setNeedsDisplay];
     [self.layer addSublayer:self.envelopeLayer];
     [_envelopeLayer moveDownAnimation];
 }

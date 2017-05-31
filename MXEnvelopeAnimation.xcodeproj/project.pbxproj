@@ -17,7 +17,8 @@
 		DD3445D71ED6EFFD00E6804D /* EnvelopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3445D61ED6EFFD00E6804D /* EnvelopeLayer.m */; };
 		DD3445DA1ED818BB00E6804D /* UIBezierPath+AnimationPath.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3445D91ED818BB00E6804D /* UIBezierPath+AnimationPath.m */; };
 		DD3445DD1ED81FB100E6804D /* SealLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3445DC1ED81FB100E6804D /* SealLayer.m */; };
-		DD575D3E1ED97C6900FAD85F /* OrderLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD575D3D1ED97C6900FAD85F /* OrderLayer.m */; };
+		DD575D3E1ED97C6900FAD85F /* LetterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD575D3D1ED97C6900FAD85F /* LetterLayer.m */; };
+		DD575D411EDE9FCE00FAD85F /* LetterContentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD575D401EDE9FCE00FAD85F /* LetterContentLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +40,10 @@
 		DD3445D91ED818BB00E6804D /* UIBezierPath+AnimationPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+AnimationPath.m"; sourceTree = "<group>"; };
 		DD3445DB1ED81FB100E6804D /* SealLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SealLayer.h; sourceTree = "<group>"; };
 		DD3445DC1ED81FB100E6804D /* SealLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SealLayer.m; sourceTree = "<group>"; };
-		DD575D3C1ED97C6900FAD85F /* OrderLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderLayer.h; sourceTree = "<group>"; };
-		DD575D3D1ED97C6900FAD85F /* OrderLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderLayer.m; sourceTree = "<group>"; };
+		DD575D3C1ED97C6900FAD85F /* LetterLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterLayer.h; sourceTree = "<group>"; };
+		DD575D3D1ED97C6900FAD85F /* LetterLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterLayer.m; sourceTree = "<group>"; };
+		DD575D3F1EDE9FCE00FAD85F /* LetterContentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterContentLayer.h; sourceTree = "<group>"; };
+		DD575D401EDE9FCE00FAD85F /* LetterContentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterContentLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +116,10 @@
 				DD3445D61ED6EFFD00E6804D /* EnvelopeLayer.m */,
 				DD3445DB1ED81FB100E6804D /* SealLayer.h */,
 				DD3445DC1ED81FB100E6804D /* SealLayer.m */,
-				DD575D3C1ED97C6900FAD85F /* OrderLayer.h */,
-				DD575D3D1ED97C6900FAD85F /* OrderLayer.m */,
+				DD575D3C1ED97C6900FAD85F /* LetterLayer.h */,
+				DD575D3D1ED97C6900FAD85F /* LetterLayer.m */,
+				DD575D3F1EDE9FCE00FAD85F /* LetterContentLayer.h */,
+				DD575D401EDE9FCE00FAD85F /* LetterContentLayer.m */,
 			);
 			path = Layer;
 			sourceTree = "<group>";
@@ -200,12 +205,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD575D3E1ED97C6900FAD85F /* OrderLayer.m in Sources */,
+				DD575D3E1ED97C6900FAD85F /* LetterLayer.m in Sources */,
 				DD3445C01ED6C3B000E6804D /* ViewController.m in Sources */,
 				DD3445DD1ED81FB100E6804D /* SealLayer.m in Sources */,
 				DD3445DA1ED818BB00E6804D /* UIBezierPath+AnimationPath.m in Sources */,
 				DD3445BD1ED6C3B000E6804D /* AppDelegate.m in Sources */,
 				DD3445BA1ED6C3B000E6804D /* main.m in Sources */,
+				DD575D411EDE9FCE00FAD85F /* LetterContentLayer.m in Sources */,
 				DD3445D71ED6EFFD00E6804D /* EnvelopeLayer.m in Sources */,
 				DD3445D41ED6C59300E6804D /* MXEnvelopeView.m in Sources */,
 			);

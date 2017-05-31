@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "MXEnvelopeView.h"
+
+#import "LetterLayer.h"
+
 @interface ViewController ()
 
 @end

@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "UIBezierPath+AnimationPath.h"
 #import "SealLayer.h"
+#import "LetterLayer.h"
 
 @interface EnvelopeLayer ()
 
@@ -19,6 +20,8 @@
 @property (nonatomic, strong) CAShapeLayer *coverLayer;
 @property (nonatomic, strong) CAShapeLayer *decorateLayer;
 @property (nonatomic, strong) CAShapeLayer *outlineLayer;
+
+@property (nonatomic, strong) LetterLayer *letterLayer;
 
 @end
 
@@ -41,6 +44,8 @@
 
 - (void)moveDownAnimation
 {
+    [self moveLetterUpAnimation];
+    
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     keyAnimation.path = [UIBezierPath envelopeAnimationPath:self distance:100.f].CGPath;
     keyAnimation.fillMode = kCAFillModeForwards;
@@ -49,6 +54,13 @@
     keyAnimation.removedOnCompletion = NO;
     [self addAnimation:keyAnimation forKey:@"moveAnimation"];
     [self.sealLayer openEnvelopeAnimation];
+}
+
+- (void)moveLetterUpAnimation
+{
+    [self.letterLayer setNeedsDisplay];
+    [self insertSublayer:self.letterLayer below:self.outlineLayer];
+    [self.letterLayer upLetterAnimation_SectionOne];
 }
 
 - (CAShapeLayer *)shadowLayer
@@ -132,6 +144,14 @@
         _coverLayer.path = path.CGPath;
     }
     return _coverLayer;
+}
+
+- (LetterLayer *)letterLayer
+{
+    if (!_letterLayer) {
+        _letterLayer = [[LetterLayer alloc] initWithFrame:self.frame fillColor:self.fillColor];
+    }
+    return _letterLayer;
 }
 
 @end

@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor purpleColor];
     
     MXEnvelopeView *envelopeView = [[MXEnvelopeView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 2 / 15, 100, SCREEN_WIDTH * 11 / 15, SCREEN_WIDTH * 77 / 207)];
     [self.view addSubview:envelopeView];

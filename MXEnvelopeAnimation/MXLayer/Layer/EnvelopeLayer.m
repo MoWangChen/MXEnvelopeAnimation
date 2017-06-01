@@ -61,6 +61,33 @@
     [self.letterLayer setNeedsDisplay];
     [self insertSublayer:self.letterLayer below:self.outlineLayer];
     [self.letterLayer upLetterAnimation_SectionOne];
+    [self.letterLayer upLetterAnimation_SectionTwo];
+    [self.letterLayer upLetterAnimation_SectionThree];
+    [self.letterLayer upLetterAnimation_SectionFour];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _letterLayer = nil;
+        [self.letterLayer setNeedsDisplay];
+        [self insertSublayer:self.letterLayer below:self.outlineLayer];
+        [self.letterLayer upLetterAnimation_SectionOne];
+        [self.letterLayer upLetterAnimation_SectionTwo];
+        [self.letterLayer upLetterAnimation_SectionThree];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _letterLayer = nil;
+        [self.letterLayer setNeedsDisplay];
+        [self insertSublayer:self.letterLayer below:self.outlineLayer];
+        [self.letterLayer upLetterAnimation_SectionOne];
+        [self.letterLayer upLetterAnimation_SectionTwo];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(12 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        _letterLayer = nil;
+        [self.letterLayer setNeedsDisplay];
+        [self insertSublayer:self.letterLayer below:self.outlineLayer];
+        [self.letterLayer upLetterAnimation_SectionOne];
+    });
 }
 
 - (CAShapeLayer *)shadowLayer

@@ -8,8 +8,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#define KAnimationBeginTime (10.f/3.f)
+#define KAnimationDuration (10.f/3.f)
+
 @interface LetterContentLayer : CAShapeLayer
 
 - (instancetype)initWithFrame:(CGRect)frame fillColor:(CGColorRef)color;
+
+- (void)fixContentPositionAnimation;
 
 @end

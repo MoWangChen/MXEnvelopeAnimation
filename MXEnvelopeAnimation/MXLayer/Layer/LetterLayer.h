@@ -13,5 +13,8 @@
 - (instancetype)initWithFrame:(CGRect)frame fillColor:(CGColorRef)color;
 
 - (void)upLetterAnimation_SectionOne;
+- (void)upLetterAnimation_SectionTwo;
+- (void)upLetterAnimation_SectionThree;
+- (void)upLetterAnimation_SectionFour;
 
 @end

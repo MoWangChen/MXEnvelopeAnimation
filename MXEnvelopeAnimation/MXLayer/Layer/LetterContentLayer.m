@@ -29,13 +29,19 @@
 
 - (void)fixContentPositionAnimation
 {
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.y"];
-    animation.fromValue = @(self.frame.size.height / 2);
-    animation.toValue = @(-self.frame.size.height / 2);
-    animation.beginTime = KAnimationBeginTime;
-    animation.duration = KAnimationDuration;
+    CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@"position.y"];
+    animation1.fromValue = @(self.frame.size.height / 2);
+    animation1.toValue = @(0.f);
+    animation1.beginTime = KAnimationBeginTime;
+    animation1.duration = KAnimationDuration;
     
-    [self addAnimation:animation forKey:nil];
+    CAAnimationGroup *animationGroup = [[CAAnimationGroup alloc] init];
+    animationGroup.animations = @[animation1];
+    animationGroup.duration = KAnimationDuration + KAnimationDuration;
+    animationGroup.repeatCount = 1;
+    animationGroup.fillMode = kCAFillModeForwards;
+    animationGroup.removedOnCompletion = NO;
+    [self addAnimation:animationGroup forKey:nil];
 }
 
 - (void)drawInContext:(CGContextRef)ctx

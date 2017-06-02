@@ -54,7 +54,7 @@
     
     CAAnimationGroup *animationGroup = [[CAAnimationGroup alloc] init];
     animationGroup.animations = @[animation1,animation2];
-    animationGroup.duration = 3 * KAnimationDuration;
+    animationGroup.duration = KAnimationBeginTime + 2 * KAnimationDuration;
     animationGroup.repeatCount = 1;
     animationGroup.fillMode = kCAFillModeForwards;
     animationGroup.removedOnCompletion = NO;

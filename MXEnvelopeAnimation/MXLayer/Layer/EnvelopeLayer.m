@@ -18,7 +18,7 @@
 @property (nonatomic, strong) CAShapeLayer *fixedLayer;
 @property (nonatomic, strong) SealLayer *sealLayer;
 @property (nonatomic, strong) CAShapeLayer *coverLayer;
-@property (nonatomic, strong) CAShapeLayer *decorateLayer;
+@property (nonatomic, strong) CAGradientLayer *decorateLayer;
 @property (nonatomic, strong) CAShapeLayer *outlineLayer;
 
 @property (nonatomic, strong) LetterLayer *letterLayer;
@@ -131,7 +131,7 @@
     return _outlineLayer;
 }
 
-- (CAShapeLayer *)decorateLayer
+- (CAGradientLayer *)decorateLayer
 {
     if (!_decorateLayer) {
         UIBezierPath *path = [UIBezierPath bezierPath];
@@ -140,17 +140,32 @@
         [path addLineToPoint:CGPointMake(self.frame.size.width * 25 / 69, self.frame.size.height * 25 / 69)];
         [path addLineToPoint:CGPointMake(0.f, self.frame.size.height)];
         [path addLineToPoint:CGPointMake(self.frame.size.width / 2, self.frame.size.height * 28 / 69)];
+        [path addLineToPoint:CGPointMake(self.frame.size.width / 2, self.frame.size.height * 2 / 7 - 10.f)];
+        [path addLineToPoint:CGPointMake(self.frame.size.width * 30 / 69, self.frame.size.height * 21 / 69)];
         [path addLineToPoint:CGPointMake(0.f, 0.f)];
         
         [path moveToPoint:CGPointMake(self.frame.size.width, 0.f)];
         [path addLineToPoint:CGPointMake(self.frame.size.width * 44 / 69, self.frame.size.height * 25 / 69)];
         [path addLineToPoint:CGPointMake(self.frame.size.width, self.frame.size.height)];
         [path addLineToPoint:CGPointMake(self.frame.size.width / 2, self.frame.size.height * 28 / 69)];
+        [path addLineToPoint:CGPointMake(self.frame.size.width / 2, self.frame.size.height * 2 / 7 - 10.f)];
+        [path addLineToPoint:CGPointMake(self.frame.size.width * 39 / 69, self.frame.size.height * 21 / 69)];
         [path addLineToPoint:CGPointMake(self.frame.size.width, 0.f)];
         
-        _decorateLayer = [CAShapeLayer layer];
-        _decorateLayer.path = path.CGPath;
-        _decorateLayer.fillColor = [UIColor cyanColor].CGColor;
+        CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+        shapeLayer.path = path.CGPath;
+        
+        CAGradientLayer *layer = [CAGradientLayer layer];
+        layer.colors = @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor yellowColor].CGColor,(__bridge id)[UIColor redColor].CGColor];
+        layer.locations = @[@0.f, @0.5f, @1.f];
+        layer.startPoint = CGPointMake(0, 0);
+        layer.endPoint = CGPointMake(1.0, 0);
+        layer.frame = self.frame;
+        layer.mask = shapeLayer;
+        layer.opacity = 0.7;
+        
+        _decorateLayer = layer;
+        
     }
     return _decorateLayer;
 }

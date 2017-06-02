@@ -159,6 +159,7 @@
 {
     [self.contentLayer setNeedsDisplay];
     [self addSublayer:self.contentLayer];
+    [self.contentLayer fixContentPositionAnimation];
 }
 
 - (UIBezierPath *)originPath

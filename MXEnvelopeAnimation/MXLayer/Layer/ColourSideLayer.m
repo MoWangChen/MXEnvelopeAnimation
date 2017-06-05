@@ -23,6 +23,7 @@
     self = [super init];
     if (self) {
         self.frame = frame;
+        self.contentsScale = [UIScreen mainScreen].scale;
     }
     return self;
 }

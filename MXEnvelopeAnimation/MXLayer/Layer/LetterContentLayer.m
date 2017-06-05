@@ -11,6 +11,8 @@
 
 @interface LetterContentLayer ()
 
+@property (nonatomic, strong) CATextLayer *titleLayer;
+@property (nonatomic, strong) CATextLayer *subTitleLayer;
 
 @end
 
@@ -22,6 +24,8 @@
     if (self) {
         self.frame = frame;
         self.cornerRadius = 5.f;
+        [self addSublayer:self.titleLayer];
+        [self addSublayer:self.subTitleLayer];
     }
     return self;
 }
@@ -43,21 +47,46 @@
     [self addAnimation:animationGroup forKey:nil];
 }
 
-- (void)drawInContext:(CGContextRef)ctx
+
+- (CATextLayer *)titleLayer
 {
-    CGContextSetFillColorWithColor(ctx, [[UIColor darkTextColor] CGColor]);
-    
-    UIGraphicsPushContext(ctx);
-    
-    NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
-    paragraph.alignment = NSTextAlignmentCenter;
-    
-//    [@"¥90" drawInRect:CGRectMake(0, 10, self.frame.size.width, 40) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:36],NSParagraphStyleAttributeName:paragraph}];
-    [@"111" drawWithRect:CGRectMake(0, 10, self.frame.size.width, 40) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:36],NSParagraphStyleAttributeName:paragraph} context:nil];
-    
-    [@"2222222" drawInRect:CGRectMake(0, 50, self.frame.size.width, 20) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14],NSParagraphStyleAttributeName:paragraph}];
-    
-    UIGraphicsPopContext();
+    if (!_titleLayer) {
+        UIFont *font = [UIFont boldSystemFontOfSize:36.f];
+        CFStringRef fontName = (__bridge CFStringRef)font.fontName;
+        CGFontRef fontRef = CGFontCreateWithFontName(fontName);
+        
+        CATextLayer *layer = [CATextLayer layer];
+        layer.string = @"1111";
+        layer.frame = CGRectMake(0, 10, self.frame.size.width, 40);
+        layer.font = fontRef;
+        layer.fontSize = font.pointSize;
+        layer.alignmentMode = kCAAlignmentCenter;
+        layer.foregroundColor = [[UIColor darkTextColor] CGColor];
+        layer.wrapped = YES;
+        layer.contentsScale = [UIScreen mainScreen].scale;
+        _titleLayer = layer;
+    }
+    return _titleLayer;
 }
 
+- (CATextLayer *)subTitleLayer
+{
+    if (!_subTitleLayer) {
+        UIFont *font = [UIFont boldSystemFontOfSize:14.f];
+        CFStringRef fontName = (__bridge CFStringRef)font.fontName;
+        CGFontRef fontRef = CGFontCreateWithFontName(fontName);
+        
+        CATextLayer *layer = [CATextLayer layer];
+        layer.string = @"2222";
+        layer.frame = CGRectMake(0, 50, self.frame.size.width, 40);
+        layer.font = fontRef;
+        layer.fontSize = font.pointSize;
+        layer.alignmentMode = kCAAlignmentCenter;
+        layer.foregroundColor = [[UIColor darkTextColor] CGColor];
+        layer.wrapped = YES;
+        layer.contentsScale = [UIScreen mainScreen].scale;
+        _subTitleLayer = layer;
+    }
+    return _subTitleLayer;
+}
 @end

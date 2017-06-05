@@ -19,6 +19,8 @@
 		DD3445DD1ED81FB100E6804D /* SealLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3445DC1ED81FB100E6804D /* SealLayer.m */; };
 		DD575D3E1ED97C6900FAD85F /* LetterLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD575D3D1ED97C6900FAD85F /* LetterLayer.m */; };
 		DD575D411EDE9FCE00FAD85F /* LetterContentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DD575D401EDE9FCE00FAD85F /* LetterContentLayer.m */; };
+		DDA0C8D31EE5419A007280ED /* MXEnvelopeTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA0C8D21EE5419A007280ED /* MXEnvelopeTheme.m */; };
+		DDA0C8D61EE542C5007280ED /* ColourSideLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA0C8D51EE542C5007280ED /* ColourSideLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,10 @@
 		DD575D3D1ED97C6900FAD85F /* LetterLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterLayer.m; sourceTree = "<group>"; };
 		DD575D3F1EDE9FCE00FAD85F /* LetterContentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterContentLayer.h; sourceTree = "<group>"; };
 		DD575D401EDE9FCE00FAD85F /* LetterContentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterContentLayer.m; sourceTree = "<group>"; };
+		DDA0C8D11EE5419A007280ED /* MXEnvelopeTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXEnvelopeTheme.h; sourceTree = "<group>"; };
+		DDA0C8D21EE5419A007280ED /* MXEnvelopeTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXEnvelopeTheme.m; sourceTree = "<group>"; };
+		DDA0C8D41EE542C5007280ED /* ColourSideLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColourSideLayer.h; sourceTree = "<group>"; };
+		DDA0C8D51EE542C5007280ED /* ColourSideLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColourSideLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 		DD3445CF1ED6C4B500E6804D /* MXLayer */ = {
 			isa = PBXGroup;
 			children = (
+				DDA0C8D01EE54183007280ED /* Config */,
 				DD3445D01ED6C4E400E6804D /* Layer */,
 				DD3445D11ED6C4E400E6804D /* Others */,
 				DD3445D21ED6C59300E6804D /* MXEnvelopeView.h */,
@@ -120,6 +127,8 @@
 				DD575D3D1ED97C6900FAD85F /* LetterLayer.m */,
 				DD575D3F1EDE9FCE00FAD85F /* LetterContentLayer.h */,
 				DD575D401EDE9FCE00FAD85F /* LetterContentLayer.m */,
+				DDA0C8D41EE542C5007280ED /* ColourSideLayer.h */,
+				DDA0C8D51EE542C5007280ED /* ColourSideLayer.m */,
 			);
 			path = Layer;
 			sourceTree = "<group>";
@@ -131,6 +140,15 @@
 				DD3445D91ED818BB00E6804D /* UIBezierPath+AnimationPath.m */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		DDA0C8D01EE54183007280ED /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				DDA0C8D11EE5419A007280ED /* MXEnvelopeTheme.h */,
+				DDA0C8D21EE5419A007280ED /* MXEnvelopeTheme.m */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +223,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA0C8D31EE5419A007280ED /* MXEnvelopeTheme.m in Sources */,
+				DDA0C8D61EE542C5007280ED /* ColourSideLayer.m in Sources */,
 				DD575D3E1ED97C6900FAD85F /* LetterLayer.m in Sources */,
 				DD3445C01ED6C3B000E6804D /* ViewController.m in Sources */,
 				DD3445DD1ED81FB100E6804D /* SealLayer.m in Sources */,

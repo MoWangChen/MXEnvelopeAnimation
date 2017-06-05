@@ -11,15 +11,17 @@
 #import "UIBezierPath+AnimationPath.h"
 #import "SealLayer.h"
 #import "LetterLayer.h"
+#import "MXEnvelopeTheme.h"
+#import "ColourSideLayer.h"
 
 @interface EnvelopeLayer ()
 
 @property (nonatomic, strong) CAShapeLayer *shadowLayer;
-@property (nonatomic, strong) CAShapeLayer *fixedLayer;
 @property (nonatomic, strong) SealLayer *sealLayer;
-@property (nonatomic, strong) CAShapeLayer *coverLayer;
-@property (nonatomic, strong) CAGradientLayer *decorateLayer;
 @property (nonatomic, strong) CAShapeLayer *outlineLayer;
+@property (nonatomic, strong) ColourSideLayer *sideLayer;
+@property (nonatomic, strong) CAGradientLayer *decorateLayer;
+@property (nonatomic, strong) CAShapeLayer *coverLayer;
 
 @property (nonatomic, strong) LetterLayer *letterLayer;
 
@@ -44,16 +46,19 @@
 
 - (void)moveDownAnimation
 {
-    [self moveLetterUpAnimation];
+    [self.sideLayer setNeedsDisplay];
+    [self addSublayer:self.sideLayer];
     
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     keyAnimation.path = [UIBezierPath envelopeAnimationPath:self distance:100.f].CGPath;
     keyAnimation.fillMode = kCAFillModeForwards;
     keyAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    keyAnimation.duration = 10;
+    keyAnimation.duration = 1.f;
     keyAnimation.removedOnCompletion = NO;
     [self addAnimation:keyAnimation forKey:@"moveAnimation"];
+    
     [self.sealLayer openEnvelopeAnimation];
+    [self moveLetterUpAnimation];
 }
 
 - (void)moveLetterUpAnimation
@@ -65,7 +70,7 @@
     [self.letterLayer upLetterAnimation_SectionThree];
     [self.letterLayer upLetterAnimation_SectionFour];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((2.f/3.f) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         _letterLayer = nil;
         [self.letterLayer setNeedsDisplay];
         [self insertSublayer:self.letterLayer below:self.outlineLayer];
@@ -74,7 +79,7 @@
         [self.letterLayer upLetterAnimation_SectionThree];
     });
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((4.f/3.f) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         _letterLayer = nil;
         [self.letterLayer setNeedsDisplay];
         [self insertSublayer:self.letterLayer below:self.outlineLayer];
@@ -82,7 +87,7 @@
         [self.letterLayer upLetterAnimation_SectionTwo];
     });
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(12 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((6.f/3.f) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         _letterLayer = nil;
         [self.letterLayer setNeedsDisplay];
         [self insertSublayer:self.letterLayer below:self.outlineLayer];
@@ -94,10 +99,10 @@
 {
     if (!_shadowLayer) {
         UIBezierPath *path = [UIBezierPath bezierPath];
-        [path moveToPoint:CGPointMake(0.f, -1.f)];
-        [path addLineToPoint:CGPointMake(self.frame.size.width, 0.f)];
+        [path moveToPoint:CGPointMake(0.f, -0.5f)];
+        [path addLineToPoint:CGPointMake(self.frame.size.width, -0.5f)];
         [path addLineToPoint:CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2)];
-        [path addLineToPoint:CGPointMake(0.f, 0.f)];
+        [path addLineToPoint:CGPointMake(0.f, -0.5f)];
         _shadowLayer = [[CAShapeLayer alloc] init];
         _shadowLayer.fillColor = [UIColor colorWithWhite:1.0 alpha:0.6].CGColor;
         _shadowLayer.path = path.CGPath;
@@ -108,7 +113,7 @@
 - (SealLayer *)sealLayer
 {
     if (!_sealLayer) {
-        _sealLayer = [[SealLayer alloc] initWithFrame:self.frame fillColor:self.fillColor];
+        _sealLayer = [[SealLayer alloc] initWithFrame:self.bounds fillColor:self.fillColor];
     }
     return _sealLayer;
 }
@@ -129,6 +134,14 @@
         _outlineLayer.path = path.CGPath;
     }
     return _outlineLayer;
+}
+
+- (ColourSideLayer *)sideLayer
+{
+    if (!_sideLayer) {
+        _sideLayer = [[ColourSideLayer alloc] initWithFrame:self.bounds fillColor:self.fillColor];
+    }
+    return _sideLayer;
 }
 
 - (CAGradientLayer *)decorateLayer
@@ -156,13 +169,13 @@
         shapeLayer.path = path.CGPath;
         
         CAGradientLayer *layer = [CAGradientLayer layer];
-        layer.colors = @[(__bridge id)[UIColor redColor].CGColor,(__bridge id)[UIColor yellowColor].CGColor,(__bridge id)[UIColor redColor].CGColor];
+        layer.colors = @[(__bridge id)[UIColor whiteColor].CGColor,(__bridge id)[MXEnvelopeTheme currentTheme].decorateColor.CGColor];
         layer.locations = @[@0.f, @0.5f, @1.f];
         layer.startPoint = CGPointMake(0, 0);
         layer.endPoint = CGPointMake(1.0, 0);
-        layer.frame = self.frame;
+        layer.frame = self.bounds;
         layer.mask = shapeLayer;
-        layer.opacity = 0.7;
+        layer.opacity = 0.5;
         
         _decorateLayer = layer;
         
@@ -191,7 +204,7 @@
 - (LetterLayer *)letterLayer
 {
     if (!_letterLayer) {
-        _letterLayer = [[LetterLayer alloc] initWithFrame:self.frame fillColor:self.fillColor];
+        _letterLayer = [[LetterLayer alloc] initWithFrame:self.bounds fillColor:self.fillColor];
     }
     return _letterLayer;
 }

@@ -8,8 +8,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#define KAnimationBeginTime (10.f/3.f)
-#define KAnimationDuration (10.f/3.f)
+#define KAnimationBeginTime (2.f/3.f)
+#define KAnimationDuration (2.f/3.f)
 
 @interface LetterContentLayer : CAShapeLayer
 

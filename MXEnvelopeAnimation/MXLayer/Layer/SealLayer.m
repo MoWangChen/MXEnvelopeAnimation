@@ -9,8 +9,8 @@
 #import "SealLayer.h"
 #import <UIKit/UIKit.h>
 
-#define KAnimationBeginTime (10.f/3.f)
-#define KAnimationDuration (10.f/3.f)
+#define KAnimationBeginTime (1.f/3.f)
+#define KAnimationDuration (1.f/3.f)
 
 @interface SealLayer ()
 
@@ -28,7 +28,7 @@
     self = [super init];
     if (self) {
         self.frame = frame;
-        self.fillColor = [UIColor redColor].CGColor;
+        self.fillColor = [UIColor whiteColor].CGColor;
         self.path = self.invertedTrianglePath.CGPath;
     }
     return self;

@@ -12,7 +12,6 @@
 @interface LetterContentLayer ()
 
 
-
 @end
 
 @implementation LetterContentLayer
@@ -56,7 +55,7 @@
 //    [@"¥90" drawInRect:CGRectMake(0, 10, self.frame.size.width, 40) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:36],NSParagraphStyleAttributeName:paragraph}];
     [@"111" drawWithRect:CGRectMake(0, 10, self.frame.size.width, 40) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:36],NSParagraphStyleAttributeName:paragraph} context:nil];
     
-    [@"2017年春节学杂费" drawInRect:CGRectMake(0, 50, self.frame.size.width, 20) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14],NSParagraphStyleAttributeName:paragraph}];
+    [@"2222222" drawInRect:CGRectMake(0, 50, self.frame.size.width, 20) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:14],NSParagraphStyleAttributeName:paragraph}];
     
     UIGraphicsPopContext();
 }
